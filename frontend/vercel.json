@@ -1,0 +1,38 @@
+
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://polyvault-api.onrender.com/:path*"
+    },
+    {
+      "source": "/customers/:path*",
+      "destination": "https://polyvault-api.onrender.com/customers/:path*"
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "https://polyvault-api.onrender.com/assets/:path*"
+    },
+    {
+      "source": "/creator/:path*",
+      "destination": "https://polyvault-api.onrender.com/creator/:path*"
+    },
+    {
+      "source": "/wishlist/:path*",
+      "destination": "https://polyvault-api.onrender.com/wishlist/:path*"
+    },
+    {
+      "source": "/cart/:path*",
+      "destination": "https://polyvault-api.onrender.com/cart/:path*"
+    },
+    {
+      "source": "/orders/:path*",
+      "destination": "https://polyvault-api.onrender.com/orders/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
