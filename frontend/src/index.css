@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================================================
+   DARK MODE — Direct CSS (no Tailwind config needed)
+   ======================================================================== */
+
+body {
+  background-color: #FAF8F5;
+  color: #121417;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html.dark body {
+  background-color: #111317 !important;
+  color: #EDE8E1 !important;
+}
+
+html.dark {
+  background-color: #111317 !important;
+  color: #EDE8E1 !important;
+}
+
+html.dark #root {
+  background-color: #111317 !important;
+  color: #EDE8E1 !important;
+}
+
+/* Override ALL Tailwind utilities when dark mode is active */
+html.dark [class*="bg-"] {
+  background-color: inherit;
+}
+
+html.dark .bg-vault-paper,
+html.dark .bg-white,
+html.dark .bg-gray-50,
+html.dark .bg-neutral-100,
+html.dark .bg-\[\#FAF8F5\] {
+  background-color: #111317 !important;
+}
+
+html.dark .text-vault-dark,
+html.dark .text-black,
+html.dark .text-gray-900,
+html.dark .text-\[\#121417\] {
+  color: #EDE8E1 !important;
+}
+
+/* ========================================================================
+   BUTTON SYSTEM
+   ======================================================================== */
+
+.exampleBtn {
+  padding: 12px 24px;
+  background-color: hsl(222, 100%, 95%);
+  color: hsl(243, 80%, 62%);
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid hsla(243, 80%, 62%, 0.25);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.exampleBtn span {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exampleBtn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: hsl(243, 80%, 62%);
+  transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+  transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1), transform 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+  opacity: 0;
+  z-index: 0;
+}
+
+.exampleBtn:hover::before {
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0) scale3d(1.2, 1.2, 1.2);
+}
+
+.exampleBtn:hover span {
+  color: hsl(222, 100%, 95%);
+}
+
+html.dark .exampleBtn {
+  background-color: hsla(243, 80%, 62%, 0.16);
+  color: hsl(243, 90%, 75%);
+  border-color: hsla(243, 80%, 62%, 0.35);
+}
+
+html.dark .exampleBtn:hover span {
+  color: #FFFFFF;
+}
